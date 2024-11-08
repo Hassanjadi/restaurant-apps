@@ -1,22 +1,18 @@
-import 'regenerator-runtime'; /* for async await transpile */
-import '../styles/main.scss';
+import "regenerator-runtime";
+import "../styles/main.css";
+import "../styles/responsive.css";
+import App from "./views/app";
 
-console.log('Hello Coders! :)');
+const app = new App({
+  button: document.querySelector("#hamburgerButton"),
+  drawer: document.querySelector("#navigationDrawer"),
+  content: document.querySelector("#mainContent"),
+});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const burgerButton = document.querySelector('.burger');
-  const navList = document.querySelector('#nav-list');
+window.addEventListener("hashchange", () => {
+  app.renderPage();
+});
 
-  burgerButton.addEventListener('click', (event) => {
-    document.body.classList.toggle('open');
-    const isOpen = document.body.classList.contains('open');
-    event.target.setAttribute('aria-expanded', isOpen);
-
-    if (isOpen) {
-      navList.removeAttribute('hidden');
-      navList.focus();
-    } else {
-      navList.setAttribute('hidden', true);
-    }
-  });
+window.addEventListener("load", () => {
+  app.renderPage();
 });
