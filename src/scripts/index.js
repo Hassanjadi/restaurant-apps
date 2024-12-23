@@ -1,7 +1,7 @@
-import "regenerator-runtime";
 import "../styles/main.css";
-import "../styles/responsive.css";
+import "regenerator-runtime";
 import App from "./views/app";
+import "../styles/responsive.css";
 import swRegister from "./utils/sw-register";
 
 const app = new App({
