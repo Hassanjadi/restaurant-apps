@@ -5,20 +5,19 @@ const Favorite = {
   async render() {
     return `
     <div class="content">
-      <h2 class="content__heading">Your Favorite Restaurant</h2>
-      <div id="restaurant" class="restaurant">
- 
+      <h2 class="content__heading">Favorite Restaurant</h2>
+      <div id="restaurants" class="restaurants">
       </div>
     </div>
   `;
   },
  
   async afterRender() {
-    const restaurant = await FavoriteRestaurantIdb.getAllRestaurant();
-    const restaurantContainer = document.querySelector('#restaurant');
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
+    const restaurantContainer = document.querySelector('#restaurants');
     
-    restaurant.forEach((restaurant) => {
-      restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+    restaurants.forEach((restaurants) => {
+      restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurants);
     });
   },
 };

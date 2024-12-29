@@ -1,13 +1,15 @@
 import UrlParser from "../../routes/url-parser";
 import TheRestaurantDbSource from "../../data/therestodb-source";
-import { createRestaurantDetailTemplate } from '../templates/templates-creator';
 import LikeButtonInitiator from "../../utils/like-button-initiator";
+import { createRestaurantDetailTemplate } from '../templates/templates-creator';
 
 const Detail = {
   async render() {
     return `
-      <div id="restaurant" class="restaurant"></div>
-      <div id="likeButtonContainer"></div>
+      <div class="content">
+        <div id="detailRestaurant" class="detail__restaurant"></div>
+        <div id="likeButtonContainer"></div>
+      </div?
     `;
   },
 
@@ -15,7 +17,7 @@ const Detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const response = await TheRestaurantDbSource.detailRestaurant(url.id);
     const restaurant = response.restaurant;
-    const restaurantContainer = document.querySelector("#restaurant");
+    const restaurantContainer = document.querySelector("#detailRestaurant");
     restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
 
 
