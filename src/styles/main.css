@@ -11,6 +11,16 @@ body {
   flex-direction: column;
 }
 
+h2, h3, h4 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+}
+
 .like {
   width: 55px;
   height: 55px;
@@ -263,7 +273,6 @@ main {
 /*
   Detail Restaurant
 */
-
 .detail__restaurant {
   width: 100%;
   display: grid;
@@ -271,16 +280,138 @@ main {
   gap: 18px 16px;
 }
 
-.detail__restaurant .restaurant__poster {
+.detail__header {
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.restaurant__poster {
   width: 100%;
-  /* max-width: 400px; */
+  height: auto;
+  border-radius: 8px;
 }
 
-.detail__restaurant .restaurant__info h4 {
-  margin: 8px 0;
+.detail__description {
+  padding: 15px;
+}
+
+.restaurant__title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.detail__address {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.detail__address h4 {
+  font-size: 16px;
+  color: #333;
+}
+
+.detail__address p {
+  font-size: 14px;
+  color: #555;
+}
+
+.restaurant__menu {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.restaurant__menu__food,
+.restaurant__menu__drink {
+  margin-bottom: 20px;
+}
+
+.restaurant__menu h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.restaurant__menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.restaurant__menu li {
+  font-size: 16px;
+  color: #555;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.restaurant__menu li:hover {
+  background-color: #f4f4f4;
 }
 
 
+.restaurant__overview {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.restaurant__overview h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+form input[type="text"],
+form textarea,
+form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+form input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.customer-review {
+  background-color: #fafafa;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customer-review p {
+  margin: 0;
+  color: #555;
+}
+
+.customer-review strong {
+  color: #333;
+  font-weight: bold;
+}
+
+.customer-review .date {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
 
 /*
   Footer
