@@ -11,15 +11,15 @@ const Favorite = {
     </div>
   `;
   },
- 
+
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
     const restaurantContainer = document.querySelector('#restaurants');
-    
+
     restaurants.forEach((restaurants) => {
       restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurants);
     });
   },
 };
- 
+
 export default Favorite;

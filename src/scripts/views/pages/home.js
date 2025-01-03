@@ -1,5 +1,5 @@
-import TheRestaurantDbSource from "../../data/therestodb-source";
-import { createRestaurantItemTemplate } from "../templates/templates-creator";
+import TheRestaurantDbSource from '../../data/therestodb-source';
+import { createRestaurantItemTemplate } from '../templates/templates-creator';
 
 const Home = {
   async render() {
@@ -16,7 +16,6 @@ const Home = {
         <a href="#restaurants">Explore Now</a>
       </div>
     </section>
-    
     <div class="content">
       <h2 class="content__heading">Restaurant List</h2>
       <div id="restaurants" class="restaurants">
@@ -28,7 +27,7 @@ const Home = {
   async afterRender() {
     const response = await TheRestaurantDbSource.restaurantList();
     const restaurants = response.restaurants;
-    const restaurantContainer = document.querySelector("#restaurants");
+    const restaurantContainer = document.querySelector('#restaurants');
     restaurants.forEach((restaurant) => {
       restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
     });
