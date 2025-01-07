@@ -6,10 +6,10 @@ import { createRestaurantDetailTemplate } from '../templates/templates-creator';
 const Detail = {
   async render() {
     return `
-      <div class="content">
+     <div class="content">
         <div id="detailRestaurant" class="detail__restaurant"></div>
         <div id="likeButtonContainer"></div>
-      </div?
+    </div>
     `;
   },
 

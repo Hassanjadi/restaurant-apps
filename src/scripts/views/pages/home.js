@@ -4,22 +4,22 @@ import { createRestaurantItemTemplate } from '../templates/templates-creator';
 const Home = {
   async render() {
     return `
-    <section id="hero" class="hero" aria-label="Hero">
-      <div class="hero__images" tabindex="0" aria-label="Hero Image Restaurant">
+    <section id="hero" class="hero">
+      <div class="hero__images">
         <img src="/images/heros/hero-image_2.jpg" alt="Hero Images" />
       </div>
       <div class="hero__description">
-        <h1 id="hero-title" tabindex="0" aria-label="Welcome to Our Restaurant Catalog">
+        <h1 id="hero-title">
           Welcome to Our <br />
           Restaurant Catalog
         </h1>
         <a href="#restaurants">Explore Now</a>
       </div>
     </section>
+
     <div class="content">
       <h2 class="content__heading">Restaurant List</h2>
-      <div id="restaurants" class="restaurants">
-      </div>
+      <div id="restaurants" class="restaurants"></div>
     </div>
     `;
   },
