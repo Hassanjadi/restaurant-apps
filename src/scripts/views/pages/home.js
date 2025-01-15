@@ -6,7 +6,11 @@ const Home = {
     return `
     <section id="hero" class="hero">
       <div class="hero__images">
-        <img src="/images/heros/hero-image_2.jpg" alt="Hero Images" />
+      <picture>
+        <source media="(max-width: 600px)" srcset="./images/heros/hero-image_2-small.jpg">
+        <img src='./images/heros/hero-image_2-large.jpg' 
+             alt="dirt rally poster">
+      </picture>
       </div>
       <div class="hero__description">
         <h1 id="hero-title">
