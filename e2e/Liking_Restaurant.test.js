@@ -1,5 +1,4 @@
-const assert = require('assert'); // Import assertion library
-
+const assert = require('assert');
 Feature('Liking and Unliking Restaurant');
 
 Before(({ I }) => {
