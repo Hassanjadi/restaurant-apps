@@ -1,32 +1,37 @@
-// eslint-disable-next-line no-unused-vars, no-undef
-const { I } = inject();
+const assert = require('assert'); // Import assertion library
 
-// eslint-disable-next-line no-undef
-Feature('Restaurant Favorites');
+Feature('Liking and Unliking Restaurant');
 
-// eslint-disable-next-line no-undef
 Before(({ I }) => {
   I.amOnPage('/');
 });
 
-// eslint-disable-next-line no-undef
-Scenario('Liking a restaurant', async ({ I }) => {
-  I.waitForElement('.resto-item_description', 5);
-  I.seeElement('.resto-item_description');
-  I.click('.resto-item > a ');
+Scenario('liking and unliking a restaurant', async ({ I }) => {
+  I.seeElement('.restaurant-item');
+  
+  const firstRestaurant = locate('.restaurant-item a').first();
+  const firstRestaurantName = await I.grabTextFrom(firstRestaurant);
+  I.click(firstRestaurant);
 
-  I.waitForElement('#likeButton', 2);
+  I.seeElement('.restaurant__title');
+  const detailRestaurantName = await I.grabTextFrom('.restaurant__title');
+  assert.strictEqual(firstRestaurantName, detailRestaurantName, 'Nama restoran pada daftar dan detail harus sama.');
+
   I.seeElement('#likeButton');
   I.click('#likeButton');
-});
+  I.seeElement('.fa-heart');
 
-// eslint-disable-next-line no-undef
-Scenario('Unliking a restaurant', async ({ I }) => {
-  I.waitForElement('.resto-item_description', 5);
-  I.seeElement('.resto-item_description');
-  I.click('.resto-item > a ');
+  I.amOnPage('/#/favorite');
+  I.seeElement('.restaurant-item');
+  const likedRestaurantName = await I.grabTextFrom('.restaurant-item__content h3 a');
+  assert.strictEqual(firstRestaurantName, likedRestaurantName, 'Restoran yang disukai harus muncul di daftar favorit.');
 
-  I.waitForElement('#likeButton', 2);
+  I.click(locate('.restaurant-item a').first());
   I.seeElement('#likeButton');
+
   I.click('#likeButton');
+  I.seeElement('.fa-heart-o');
+
+  I.amOnPage('/#/favorite');
+  I.dontSeeElement('.restaurant-item');
 });
